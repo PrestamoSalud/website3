@@ -1,5 +1,19 @@
+/**
+ * PrestamoSalud - Landing Page Scripts
+ * Versión: 2.0
+ * Fecha: 2025-04-30
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Header Scroll Effect
+    // Inicializar AOS (Animate On Scroll)
+    AOS.init({
+        duration: 800,
+        offset: 50,
+        once: true,
+        easing: 'ease-in-out'
+    });
+    
+    // Navegación - Scroll behavior
     const header = document.querySelector('header');
     
     window.addEventListener('scroll', function() {
@@ -10,125 +24,169 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Mobile Menu Toggle
+    // Navegación móvil
     const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
+    const navMenu = document.querySelector('.nav-menu');
     
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-    //test
+    if (hamburger) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Animar hamburger
+            const bars = hamburger.querySelectorAll('.bar');
+            if (hamburger.classList.contains('active')) {
+                bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+                bars[1].style.opacity = '0';
+                bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+            } else {
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            }
+        });
+    }
     
-    // Close mobile menu when clicking on a nav link
-    document.querySelectorAll('.nav-menu a').forEach(link => {
+    // Cerrar menú al hacer clic en un enlace
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+            if (hamburger && hamburger.classList.contains('active')) {
+                hamburger.click();
+            }
         });
     });
     
-    // Tabs Functionality
-    const tabButtons = document.querySelectorAll('.tab-btn');
+    // Tabs en sección About
+    const aboutTabs = document.querySelectorAll('.tab');
     
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-target');
-            
-            // Remove active class from all buttons and panes
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
+    if (aboutTabs.length > 0) {
+        aboutTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remover clase active de todos los tabs
+                document.querySelectorAll('.tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Remover clase active de todos los tab contents
+                document.querySelectorAll('.tab-content').forEach(c => {
+                    c.classList.remove('active');
+                });
+                
+                // Añadir clase active al tab seleccionado
+                this.classList.add('active');
+                
+                // Activar el tab content correspondiente
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
             });
-            
-            document.querySelectorAll('.tab-pane').forEach(pane => {
-                pane.classList.remove('active');
-            });
-            
-            // Add active class to clicked button and target pane
-            this.classList.add('active');
-            document.getElementById(targetId).classList.add('active');
         });
-    });
+    }
     
-    // FAQ Accordion
+    // Tabs en sección Solutions
+    const solutionTabs = document.querySelectorAll('.tab-btn');
+    
+    if (solutionTabs.length > 0) {
+        solutionTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remover clase active de todos los tabs
+                document.querySelectorAll('.tab-btn').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Remover clase active de todos los tab panes
+                document.querySelectorAll('.tab-pane').forEach(p => {
+                    p.classList.remove('active');
+                });
+                
+                // Añadir clase active al tab seleccionado
+                this.classList.add('active');
+                
+                // Activar el tab pane correspondiente
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    }
+    
+    // Accordion en sección FAQ
     const accordionItems = document.querySelectorAll('.accordion-item');
     
-    accordionItems.forEach(item => {
-        const header = item.querySelector('.accordion-header');
-        
-        header.addEventListener('click', function() {
-            // Toggle active class on the clicked item
-            item.classList.toggle('active');
+    if (accordionItems.length > 0) {
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
             
-            // Optional: Close other accordion items
-            accordionItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
+            header.addEventListener('click', function() {
+                // Toggle del item actual
+                item.classList.toggle('active');
+                
+                // Cerrar otros items (comportamiento de acordeón)
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
             });
         });
-    });
-    
-    // Testimonial Slider
-    const testimonialIndicators = document.querySelectorAll('.testimonial-indicators .indicator');
-    let currentTestimonial = 0;
-    
-    function showTestimonial(index) {
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        
-        // Hide all testimonials
-        testimonials.forEach(testimonial => {
-            testimonial.style.display = 'none';
-        });
-        
-        // Remove active class from all indicators
-        testimonialIndicators.forEach(indicator => {
-            indicator.classList.remove('active');
-        });
-        
-        // Show the selected testimonial and make its indicator active
-        testimonials[index].style.display = 'block';
-        testimonialIndicators[index].classList.add('active');
     }
     
-    // Initialize testimonial display
-    showTestimonial(currentTestimonial);
+    // Slider de testimonios
+    const testimonialSlider = document.querySelector('.testimonials-track');
+    const prevButton = document.querySelector('.prev-testimonial');
+    const nextButton = document.querySelector('.next-testimonial');
+    const testimonials = document.querySelectorAll('.testimonial');
+    let currentIndex = 0;
     
-    // Set up indicator clicks
-    testimonialIndicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', function() {
-            currentTestimonial = index;
-            showTestimonial(currentTestimonial);
-        });
-    });
-    
-    // Auto rotate testimonials
-    setInterval(function() {
-        currentTestimonial = (currentTestimonial + 1) % testimonialIndicators.length;
-        showTestimonial(currentTestimonial);
-    }, 5000);
-    
-    // Stats Counter Animation
-    function animateCounter(element, target) {
-        let count = 0;
-        const duration = 2000; // ms
-        const step = target / (duration / 16); // Update every ~16ms (60fps)
-        
-        const counter = setInterval(function() {
-            count += step;
-            
-            if (count >= target) {
-                clearInterval(counter);
-                element.textContent = target + '+';
-            } else {
-                element.textContent = Math.floor(count) + '+';
+    if (testimonialSlider && testimonials.length > 0) {
+        // Función para mostrar un testimonio específico
+        function showTestimonial(index) {
+            if (index < 0) {
+                index = testimonials.length - 1;
+            } else if (index >= testimonials.length) {
+                index = 0;
             }
-        }, 16);
+            
+            currentIndex = index;
+            testimonialSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        
+        // Event listeners para los botones de navegación
+        if (prevButton) {
+            prevButton.addEventListener('click', function() {
+                showTestimonial(currentIndex - 1);
+            });
+        }
+        
+        if (nextButton) {
+            nextButton.addEventListener('click', function() {
+                showTestimonial(currentIndex + 1);
+            });
+        }
+        
+        // Auto-rotación de testimonios
+        let testimonialInterval = setInterval(function() {
+            showTestimonial(currentIndex + 1);
+        }, 6000);
+        
+        // Detener auto-rotación cuando el mouse está sobre los testimonios
+        testimonialSlider.addEventListener('mouseenter', function() {
+            clearInterval(testimonialInterval);
+        });
+        
+        testimonialSlider.addEventListener('mouseleave', function() {
+            testimonialInterval = setInterval(function() {
+                showTestimonial(currentIndex + 1);
+            }, 6000);
+        });
     }
     
-    // Check if element is in viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
+    // Animación de contadores en Stats
+    const statNumbers = document.querySelectorAll('.stats-number');
+    let countersStarted = false;
+    
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
         return (
             rect.top >= 0 &&
             rect.left >= 0 &&
@@ -137,75 +195,130 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
     
-    const statNumbers = document.querySelectorAll('.stats-number');
-    let countersStarted = false;
+    function animateCounter(el) {
+        const target = parseInt(el.getAttribute('data-count'));
+        const suffix = el.textContent.replace(/[0-9]/g, '');
+        const duration = 2000; // 2 segundos
+        const interval = 20; // cada 20ms
+        const increment = target / (duration / interval);
+        
+        let current = 0;
+        const timer = setInterval(function() {
+            current += increment;
+            
+            if (current >= target) {
+                el.textContent = target + suffix;
+                clearInterval(timer);
+            } else {
+                el.textContent = Math.floor(current) + suffix;
+            }
+        }, interval);
+    }
     
-    // Start counters when stats section comes into view
-    window.addEventListener('scroll', function() {
-        if (!countersStarted && statNumbers.length > 0 && isInViewport(statNumbers[0])) {
-            countersStarted = true;
-            statNumbers.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-count'), 10);
-                animateCounter(stat, target);
-            });
+    function checkCounters() {
+        if (statNumbers.length > 0 && !countersStarted) {
+            const firstCounter = statNumbers[0];
+            
+            if (isElementInViewport(firstCounter)) {
+                countersStarted = true;
+                statNumbers.forEach(animateCounter);
+            }
         }
+    }
+    
+    // Verificar contadores cuando se hace scroll
+    window.addEventListener('scroll', checkCounters);
+    
+    // Verificar contadores cuando se carga la página
+    checkCounters();
+    
+    // Timeline Progress en la sección How It Works
+    const timelineProgress = document.querySelector('.timeline-progress');
+    const timelineSteps = document.querySelectorAll('.timeline-step');
+    
+    if (timelineProgress && timelineSteps.length > 0) {
+        const updateProgress = () => {
+            const viewportHeight = window.innerHeight;
+            const steps = Array.from(timelineSteps);
+            let activeStepIndex = -1;
+            
+            // Encontrar el último paso visible en el viewport
+            steps.forEach((step, index) => {
+                const rect = step.getBoundingClientRect();
+                if (rect.top + rect.height / 2 < viewportHeight) {
+                    activeStepIndex = index;
+                }
+            });
+            
+            // Calcular progreso
+            if (activeStepIndex >= 0) {
+                const progress = ((activeStepIndex + 1) / steps.length) * 100;
+                timelineProgress.style.height = `${progress}%`;
+            }
+        };
+        
+        window.addEventListener('scroll', updateProgress);
+        updateProgress(); // Inicializar
+    }
+    
+    // Formularios - Validación y envío
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Simular envío exitoso (aquí iría la lógica real de envío)
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Enviando...';
+            
+            setTimeout(function() {
+                submitButton.innerHTML = '<i class="fas fa-check"></i> ¡Enviado con éxito!';
+                
+                // Mostrar mensaje de éxito
+                const formMessage = document.createElement('div');
+                formMessage.classList.add('form-message', 'success');
+                formMessage.innerHTML = '<i class="fas fa-check-circle"></i> Su información ha sido recibida. Nos pondremos en contacto pronto.';
+                form.appendChild(formMessage);
+                
+                // Resetear formulario
+                form.reset();
+                
+                // Restaurar botón después de unos segundos
+                setTimeout(function() {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                    
+                    // Eliminar mensaje después de unos segundos
+                    setTimeout(function() {
+                        formMessage.classList.add('fade-out');
+                        setTimeout(function() {
+                            formMessage.remove();
+                        }, 500);
+                    }, 3000);
+                }, 2000);
+            }, 1500);
+        });
     });
     
-    // Smooth scrolling for anchor links
+    // Scroll suave para enlaces de anclaje
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            // Evitar scroll si es un enlace vacío o '#'
+            if (this.getAttribute('href') === '#') return;
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
                 window.scrollTo({
-                    top: targetPosition,
+                    top: target.offsetTop - 80, // Ajustar por la altura del header
                     behavior: 'smooth'
                 });
             }
-        });
-    });
-    
-    // Form submission handling
-    const forms = document.querySelectorAll('form');
-    
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form fields
-            const formFields = form.querySelectorAll('input, textarea, select');
-            let formData = {};
-            
-            formFields.forEach(field => {
-                if (field.name || field.id) {
-                    const key = field.name || field.id;
-                    formData[key] = field.value;
-                }
-            });
-            
-            // Here you would normally send the form data to your server
-            console.log('Form submitted:', formData);
-            
-            // Show success message (in a real implementation, only show after successful submission)
-            const submitButton = form.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            
-            submitButton.textContent = '✓ Enviado con éxito';
-            submitButton.disabled = true;
-            
-            // Reset form and button after delay
-            setTimeout(() => {
-                form.reset();
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }, 3000);
         });
     });
 });
