@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
+    //test
     
     // Close mobile menu when clicking on a nav link
     document.querySelectorAll('.nav-menu a').forEach(link => {
