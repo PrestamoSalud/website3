@@ -322,3 +322,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Funcionalidad para el menú de navegación
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    
+    // Toggle para menú móvil
+    hamburger.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        
+        // Anima las barras del hamburger para formar una X
+        if (hamburger.classList.contains('active')) {
+            hamburger.children[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
+            hamburger.children[1].style.opacity = '0';
+            hamburger.children[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+        } else {
+            hamburger.children[0].style.transform = 'none';
+            hamburger.children[1].style.opacity = '1';
+            hamburger.children[2].style.transform = 'none';
+        }
+    });
+    
+    // Cierra el menú cuando se hace clic en un enlace
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.children[0].style.transform = 'none';
+            hamburger.children[1].style.opacity = '1';
+            hamburger.children[2].style.transform = 'none';
+        });
+    });
+    
+    // Header scrolling effect
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.style.height = '70px';
+            header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.height = '80px';
+            header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+        }
+    });
+});
