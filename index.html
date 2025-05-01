@@ -6,6 +6,8 @@
     <title>PrestamoSalud | Financiamiento para la salud innovador en LATAM</title>
     <meta name="description" content="Soluciones de financiamiento B2B personalizadas para instituciones de salud en América Latina. Rápido, seguro e integrado.">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/wave-transition.css">
+    <link rel="stylesheet" href="css/hero-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +24,7 @@
             <div class="container">
                 <div class="logo">
                     <a href="#">
-                        <img src="images/prestamosalud-logo.svg" alt="PrestamoSalud Logo">
+                        <img src="images/prestamosalud-logo.png" alt="PrestamoSalud Logo">
                     </a>
                 </div>
                 <div class="nav-menu" id="navMenu">
@@ -70,87 +72,108 @@
         </nav>
     </header>
 
-
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background">
+        <!-- Fondo geométrico animado con interactividad al mouse -->
+        <div class="geometric-background">
+            <div class="network-grid" id="networkGrid"></div>
             <div class="blob blob-1"></div>
             <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
-            <div class="grid-overlay"></div>
         </div>
+        
         <div class="container">
-            <div class="hero-content" data-aos="fade-right" data-aos-delay="100">
+            <div class="hero-content">
                 <h1>
-                    Financiamiento de salud 
+                    Financiamiento de 
+                    <br>
+                    salud
+                    <br>
                     <span class="gradient-text">ágil y personalizado</span>
                 </h1>
-                <p>Transformamos la experiencia financiera de tus pacientes con una plataforma diseñada específicamente para instituciones de salud en LATAM.</p>
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary btn-lg">
+                
+                <p class="hero-description">
+                    Transformamos la experiencia financiera de tus 
+                    pacientes con una plataforma diseñada específicamente 
+                    para instituciones de salud en LATAM.
+                </p>
+                
+                <div class="hero-cta">
+                    <a href="#contacto" class="btn btn-primary">
                         <span>Hablar con un asesor</span>
                         <i class="fas fa-headset"></i>
                     </a>
-                    <a href="#soluciones" class="btn btn-outline btn-lg">
+                    
+                    <a href="#soluciones" class="btn btn-outline">
                         <span>Explorar soluciones</span>
                         <i class="fas fa-chevron-right"></i>
                     </a>
                 </div>
+                
                 <div class="hero-badges">
                     <div class="badge">
-                        <img src="images/badge-secure.svg" alt="100% Seguro">
+                        <div class="badge-icon secure">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
                         <span>100% Seguro</span>
                     </div>
                     <div class="badge">
-                        <img src="images/badge-latam.svg" alt="LATAM">
+                        <div class="badge-icon countries">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
                         <span>Presencia en 6 países</span>
                     </div>
                     <div class="badge">
-                        <img src="images/badge-integration.svg" alt="API">
+                        <div class="badge-icon integration">
+                            <i class="fas fa-plug"></i>
+                        </div>
                         <span>Fácil integración</span>
                     </div>
                 </div>
             </div>
-            <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
-                <img src="images/hero-dashboard.png" alt="Dashboard PrestamoSalud" class="main-image">
-                <div class="floating-card card-1">
+            
+            <!-- Tarjetas laterales -->
+            <div class="hero-cards">
+                <!-- Imagen del dashboard -->
+                <div class="dashboard-image">
+                    <img src="images/hero-dashboard.png" alt="Dashboard PrestamoSalud" class="floating">
+                </div>
+                
+                <!-- Tarjeta de aprobación rápida -->
+                <div class="feature-card2 card-approval floating">
                     <div class="card-icon">
-                        <i class="fas fa-check-circle"></i>
+                        <div class="icon-circle">
+                            <i class="fas fa-check"></i>
+                        </div>
                     </div>
                     <div class="card-content">
-                        <h4>Aprobación rápida</h4>
+                        <h3>Aprobación rápida</h3>
                         <p>¡Solicitud aprobada en 15 min!</p>
                     </div>
                 </div>
-                <div class="floating-card card-2">
+                
+                <!-- Tarjeta de incremento de ingresos -->
+                <div class="feature-card2 card-revenue floating">
                     <div class="card-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <div class="icon-circle">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
                     </div>
                     <div class="card-content">
-                        <h4>+25% de ingresos</h4>
+                        <h3>+25% de ingresos</h3>
                         <p>Para instituciones médicas</p>
                     </div>
                 </div>
-                <div class="floating-card card-3">
+                
+                <!-- Tarjeta de pacientes financiados -->
+                <div class="feature-card2 card-patients floating">
                     <div class="card-icon">
-                        <i class="fas fa-users"></i>
+                        <div class="icon-circle">
+                            <i class="fas fa-users"></i>
+                        </div>
                     </div>
                     <div class="card-content">
-                        <h4>10,000+ pacientes</h4>
+                        <h3>10,000+ pacientes</h3>
                         <p>Financiados con éxito</p>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="hero-clients">
-            <div class="container">
-                <p>Instituciones que confían en nosotros:</p>
-                <div class="client-logos">
-                    <img src="images/clients/hospital-logo1.svg" alt="Hospital Partner">
-                    <img src="images/clients/university-logo1.svg" alt="University Partner">
-                    <img src="images/clients/clinic-logo1.svg" alt="Clinic Partner">
-                    <img src="images/clients/bank-logo1.svg" alt="Bank Partner">
-                    <img src="images/clients/insurance-logo1.svg" alt="Insurance Partner">
                 </div>
             </div>
         </div>
@@ -207,6 +230,10 @@
                 <span class="section-subtitle">Quiénes Somos</span>
                 <h2>Revolución financiera en <span class="gradient-text">salud para LATAM</span></h2>
                 <p>Combinamos tecnología de punta y experiencia financiera para potenciar el acceso a servicios de salud en América Latina.</p>
+                <p>Prestamo Salud es un producto de Quotanda, un equipo pionero en préstamos como servicio que gestiona
+                    diversos   programas   de   financiamiento   para   60   instituciones.   Hemos   originado   7,000   préstamos   para
+                    instituciones   en   México,   Colombia,   España,   Estados   Unidos   y   el   Reino   Unido,   incluyendo   el   Banco
+                    Interamericano de Desarrollo y el Fondo Europeo de Inversiones</p>
             </div>
             <div class="about-grid">
                 <div class="about-visual" data-aos="fade-right" data-aos-delay="100">
@@ -349,6 +376,7 @@
         </div>
     </section>
 
+    <!-- Solutions Section -->
     <!-- Solutions Section -->
     <section class="solutions" id="soluciones">
         <div class="container">
@@ -545,11 +573,11 @@
     <!-- Benefits Section -->
     <section class="benefits" id="beneficios">
         <div class="benefits-bg">
-            <div class="shape shape-top">
-                <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 120L48 111.024C96 102.047 192 84.0943 288 75.1179C384 66.1414 480 66.1414 576 77.7846C672 89.4279 768 112.345 864 118.565C960 124.785 1056 113.566 1152 100.183C1248 86.7993 1344 71.6504 1392 64.0759L1440 56.5014V0H1392C1344 0 1248 0 1152 0C1056 0 960 0 864 0C768 0 672 0 576 0C480 0 384 0 288 0C192 0 96 0 48 0H0V120Z" fill="currentColor"/>
+            <div class="wave-section-divider">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                  <path fill="#0066ff" d="M0,0 C320,90 720,120 1440,80 L1440,120 L0,120 Z"></path>
                 </svg>
-            </div>
+              </div>
         </div>
         <div class="container">
             <div class="section-header text-white" data-aos="fade-up">
@@ -1336,5 +1364,6 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/hero-animation.js"></script>
 </body>
 </html>

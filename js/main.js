@@ -369,3 +369,98 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Crear efecto de red con puntos conectados en el fondo
+    createNetworkBackground();
+    
+    // Animar las tarjetas flotantes
+    animateCards();
+    
+    // Efecto parallax para los blobs
+    setupParallaxEffect();
+});
+
+// Función para crear puntos y líneas de conexión (red)
+function createNetworkBackground() {
+    const networkGrid = document.querySelector('.network-grid');
+    const numPoints = 30;
+    const points = [];
+    
+    // Crear puntos
+    for (let i = 0; i < numPoints; i++) {
+        const point = document.createElement('div');
+        point.classList.add('network-point');
+        
+        // Posición aleatoria
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        
+        point.style.left = `${x}%`;
+        point.style.top = `${y}%`;
+        
+        networkGrid.appendChild(point);
+        points.push({ element: point, x, y });
+    }
+    
+    // Crear líneas entre puntos cercanos
+    points.forEach((point, i) => {
+        points.slice(i + 1).forEach(otherPoint => {
+            const dx = point.x - otherPoint.x;
+            const dy = point.y - otherPoint.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Conectar puntos cercanos
+            if (distance < 20) {
+                const line = document.createElement('div');
+                line.classList.add('network-line');
+                
+                const length = distance;
+                const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+                
+                line.style.width = `${length}%`;
+                line.style.left = `${(point.x + otherPoint.x) / 2}%`;
+                line.style.top = `${(point.y + otherPoint.y) / 2}%`;
+                line.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+                
+                networkGrid.appendChild(line);
+            }
+        });
+    });
+}
+
+// Función para animar las tarjetas
+function animateCards() {
+    const cards = document.querySelectorAll('.platform-card');
+    
+    cards.forEach(card => {
+        // Añadir animación de entrada
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 300);
+    });
+}
+
+// Efecto parallax para los blobs
+function setupParallaxEffect() {
+    const blobs = document.querySelectorAll('.blob');
+    
+    document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+        
+        blobs.forEach((blob, index) => {
+            // Factor de movimiento diferente para cada blob
+            const offsetX = (mouseX - 0.5) * (25 + index * 10);
+            const offsetY = (mouseY - 0.5) * (25 + index * 10);
+            
+            blob.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
+        });
+    });
+}

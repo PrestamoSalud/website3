@@ -284,7 +284,7 @@ p {
 }
 
 .logo img {
-    height: 40px;
+    height: 140px;
     width: auto;
     display: block;
 }
@@ -2212,6 +2212,24 @@ p {
     color: var(--white);
 }
 
+/* Estilos adicionales para efectos de red */
+.network-point {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: rgba(0, 102, 255, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.network-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0, 102, 255, 0.1), rgba(60, 213, 175, 0.1));
+    z-index: -1;
+    transform-origin: left center;
+}
+
 
 /* ===== Responsive ===== */
 @media screen and (max-width: 1200px) {
@@ -2531,7 +2549,7 @@ p {
     }
     
     .logo img {
-        height: 35px;
+        height: 135px;
     }
     
     .language-select {
@@ -2554,7 +2572,7 @@ p {
     }
     
     .logo img {
-        height: 30px;
+        height: 130px;
     }
     
     .btn {
@@ -2562,3 +2580,4 @@ p {
         font-size: 0.75rem;
     }
 }
+

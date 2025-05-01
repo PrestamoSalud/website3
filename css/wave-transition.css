@@ -1,0 +1,101 @@
+/* Estilos para el separador de onda y la sección de beneficios */
+.wave-section-divider {
+  position: relative;
+  height: 120px;
+  width: 100%;
+  margin-bottom: -5px; /* Eliminar espacio entre la onda y la sección */
+}
+
+.wave-section-divider svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.benefits-section {
+  background-color: #0066ff;
+  padding: 60px 0 80px;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-bottom: 16px;
+}
+
+.section-heading {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 992px) {
+  .wave-section-divider {
+    height: 100px;
+  }
+  
+  .section-heading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wave-section-divider {
+    height: 80px;
+  }
+  
+  .section-heading {
+    font-size: 32px;
+  }
+  
+  .section-description {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .wave-section-divider {
+    height: 60px;
+  }
+  
+  .section-heading {
+    font-size: 28px;
+  }
+}
