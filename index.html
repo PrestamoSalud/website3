@@ -37,7 +37,7 @@
                     </ul>
                 </div>
                 <div class="header-buttons">
-                    <div class="language-select">
+                    <!-- <div class="language-select">
                         <div class="selected-language">
                             <img src="images/flags/es.svg" alt="Español" class="flag-icon">
                             <span>ES</span>
@@ -57,7 +57,7 @@
                                 <span>Português</span>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     <a href="#demo" class="btn btn-primary">
                         <span>Solicitar Demo</span>
                         <i class="fas fa-arrow-right"></i>
@@ -571,17 +571,18 @@
     </section>
 
     <!-- Benefits Section -->
+    <span class="section-subtitle1">Ventajas</span>
     <section class="benefits" id="beneficios">
-        <div class="benefits-bg">
+        <!-- <div class="benefits-bg">
             <div class="wave-section-divider">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
                   <path fill="#0066ff" d="M0,0 C320,90 720,120 1440,80 L1440,120 L0,120 Z"></path>
                 </svg>
               </div>
-        </div>
+        </div> -->
         <div class="container">
             <div class="section-header text-white" data-aos="fade-up">
-                <span class="section-subtitle">Ventajas</span>
+                <span class="section-subtitle1">Ventajas</span>
                 <h2>Beneficios que <span class="gradient-text-alt">transforman</span></h2>
                 <p>Nuestra plataforma está diseñada para optimizar procesos y generar valor para todos los involucrados.</p>
             </div>
@@ -1045,17 +1046,17 @@
 
     <!-- Demo Request Section -->
     <section class="demo-request" id="demo">
-        <div class="demo-bg">
+        <!-- <div class="demo-bg">
             <div class="shape shape-top">
                 <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 120L48 111.024C96 102.047 192 84.0943 288 75.1179C384 66.1414 480 66.1414 576 77.7846C672 89.4279 768 112.345 864 118.565C960 124.785 1056 113.566 1152 100.183C1248 86.7993 1344 71.6504 1392 64.0759L1440 56.5014V0H1392C1344 0 1248 0 1152 0C1056 0 960 0 864 0C768 0 672 0 576 0C480 0 384 0 288 0C192 0 96 0 48 0H0V120Z" fill="currentColor"/>
                 </svg>
             </div>
-        </div>
+        </div> -->
         <div class="container">
             <div class="demo-container" data-aos="fade-up">
                 <div class="demo-content">
-                    <span class="section-subtitle">Demostración</span>
+                    <span class="section-subtitle1">Demostración</span>
                     <h2>Vea cómo <span class="gradient-text-alt">PrestamoSalud</span> puede transformar su organización</h2>
                     <p>Descubra cómo nuestra plataforma puede ayudar a su institución a ofrecer mejores opciones de financiamiento a sus pacientes.</p>
                     
@@ -1096,17 +1097,24 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="demo-form-container">
-                    <form class="demo-form">
+
+                <div class="demo-form-container" >
+                    <iframe name="hiddenFrame" style="display:none;"></iframe>
+                    <form class="demo-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Do0000000bAHH" method="POST" target="hiddenFrame">
+                        <input type=hidden name="oid" value="00Do0000000bAHH">
+                        <input type=hidden name="retURL" value="http://prestamosalud.com">
+                        <input type="hidden" name="debug" value=1>                              
+                        <input type="hidden" name="debugEmail" value="salvador@quotanda.com">
+                        <input type="hidden" name="00NIV00001HMe1J" value="Demo PrestamoSalud">
+
                         <h3>Solicite su demostración gratuita</h3>
                         
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="name">Nombre completo</label>
+                                <label for="name">Nombre</label>
                                 <div class="input-icon">
                                     <i class="fas fa-user"></i>
-                                    <input type="text" id="name" name="name" required>
+                                    <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" required/>
                                 </div>
                             </div>
                             
@@ -1114,7 +1122,7 @@
                                 <label for="email">Correo electrónico</label>
                                 <div class="input-icon">
                                     <i class="fas fa-envelope"></i>
-                                    <input type="email" id="email" name="email" required>
+                                    <input  id="email" maxlength="80" name="email" size="20" type="email" required/>
                                 </div>
                             </div>
                             
@@ -1122,7 +1130,7 @@
                                 <label for="organization">Nombre de la organización</label>
                                 <div class="input-icon">
                                     <i class="fas fa-building"></i>
-                                    <input type="text" id="organization" name="organization" required>
+                                    <input  id="company" maxlength="40" name="company" size="20" type="text" required/>
                                 </div>
                             </div>
                             
@@ -1130,11 +1138,11 @@
                                 <label for="phone">Teléfono</label>
                                 <div class="input-icon">
                                     <i class="fas fa-phone"></i>
-                                    <input type="tel" id="phone" name="phone">
+                                    <input  id="phone" maxlength="40" name="phone" size="20" type="tel" />
                                 </div>
                             </div>
                             
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="organization-type">Tipo de organización</label>
                                 <div class="select-icon">
                                     <i class="fas fa-hospital"></i>
@@ -1166,14 +1174,14 @@
                                         <option value="other">Otro país</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         
                         <div class="form-group full-width">
                             <label for="message">¿Cómo podemos ayudarle?</label>
                             <div class="input-icon textarea-icon">
                                 <i class="fas fa-comment-alt"></i>
-                                <textarea id="message" name="message" rows="3"></textarea>
+                                <textarea id="description" name="description" rows="3"></textarea>
                             </div>
                         </div>
                         
@@ -1212,7 +1220,7 @@
                             </div>
                             <div class="method-info">
                                 <h4>Llámenos</h4>
-                                <a href="tel:+18009876543">+1 800 987 6543</a>
+                                <a href="tel:+525539028878">+52 55 3902 8878</a>
                             </div>
                         </div>
                         <div class="contact-method">
@@ -1224,7 +1232,7 @@
                                 <a href="mailto:info@prestamosalud.com">info@prestamosalud.com</a>
                             </div>
                         </div>
-                        <div class="contact-method">
+                        <!-- <div class="contact-method">
                             <div class="method-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
@@ -1232,7 +1240,7 @@
                                 <h4>Visítenos</h4>
                                 <p>Av. Reforma 243, Ciudad de México</p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="contact-method">
                             <div class="method-icon">
                                 <i class="fas fa-clock"></i>
@@ -1257,13 +1265,22 @@
                     <div class="form-header">
                         <h3>Envíenos un mensaje</h3>
                     </div>
-                    <form class="contact-form">
+                    <iframe name="hiddenFrame" style="display:none;"></iframe>
+                    <form class="contact-form" id="webToLeadForm" 
+                        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" target="hiddenFrame">
+                        
+                        <input type=hidden name="oid" value="00Do0000000bAHH">
+                        <input type=hidden name="retURL" value="http://prestamosalud.com">
+                        <input type="hidden" name="debug" value=1>                              
+                        <input type="hidden" name="debugEmail" value="salvador@quotanda.com"> 
+                        <input type="hidden" name="00NIV00001HMe1J" value="Mensaje PrestamoSalud">
+
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="contact-name">Nombre</label>
                                 <div class="input-icon">
                                     <i class="fas fa-user"></i>
-                                    <input type="text" id="contact-name" name="contact_name" required>
+                                    <input type="text" id="last_name" name="last_name" maxlength="80" required>
                                 </div>
                             </div>
                             
@@ -1271,28 +1288,36 @@
                                 <label for="contact-email">Email</label>
                                 <div class="input-icon">
                                     <i class="fas fa-envelope"></i>
-                                    <input type="email" id="contact-email" name="contact_email" required>
+                                    <input  id="email" maxlength="80" name="email" size="20" type="text" required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="organization">Nombre de la organización</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-building"></i>
+                                    <input  id="company" maxlength="40" name="company" size="20" type="text" required />
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="form-group full-width">
+                        <!-- <div class="form-group full-width">
                             <label for="contact-subject">Asunto</label>
                             <div class="input-icon">
                                 <i class="fas fa-tag"></i>
                                 <input type="text" id="contact-subject" name="contact_subject" required>
                             </div>
-                        </div>
+                        </div> -->
                         
                         <div class="form-group full-width">
                             <label for="contact-message">Mensaje</label>
                             <div class="input-icon textarea-icon">
                                 <i class="fas fa-comment-alt"></i>
-                                <textarea id="contact-message" name="contact_message" rows="5" required></textarea>
+                                <textarea name="description" required></textarea>
                             </div>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary btn-full">
+                        <button type="submit" name="submit" class="btn btn-primary btn-full">
                             <span>Enviar Mensaje</span>
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -1358,6 +1383,21 @@
                     <a href="#">Cookies</a>
                 </div>
             </div>
+
+
+            <div class="footer-powered">
+                <div >   </div>
+                <div class="powered-by">
+                    <a href="https://quotanda.com" target="_blank" rel="noopener">
+                        Powered by <span class="quotanda-name">Quotanda</span>
+                    </a>
+                    <div class="footer-powered-text">
+                        "Prestamo Salud” es una marca registrada propiedad de Quotanda México SAPI de CV, Plataforma financiera.
+                    </div>
+                </div>
+                
+            </div>
+
         </div>
     </footer>
 

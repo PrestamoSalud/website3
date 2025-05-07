@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     forms.forEach(form => {
         form.addEventListener('submit', function(event) {
-            event.preventDefault();
+            
             
             // Simular envío exitoso (aquí iría la lógica real de envío)
             const submitButton = form.querySelector('button[type="submit"]');
@@ -274,8 +274,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Enviando...';
-            
-            setTimeout(function() {
+
+
+            const iframe = document.querySelector("iframe[name='hiddenFrame']");
+            iframe.onload = function () {
+                // Aquí puedes manejar la respuesta del iframe si es necesario
+                console.log("Formulario enviado y respuesta recibida.");
                 submitButton.innerHTML = '<i class="fas fa-check"></i> ¡Enviado con éxito!';
                 
                 // Mostrar mensaje de éxito
@@ -300,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }, 500);
                     }, 3000);
                 }, 2000);
-            }, 1500);
+            }
         });
     });
     
