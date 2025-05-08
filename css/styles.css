@@ -1900,7 +1900,7 @@ p {
     margin-bottom: 0;
 }
 
-.method-info h4, a {
+.method-info h4, .method-info a {
     color: var(--white);
 }
 
