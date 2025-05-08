@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Navegación móvil
+    /* // Navegación móvil
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 hamburger.click();
             }
         });
-    });
+    }); */
     
     // Tabs en sección About
     const aboutTabs = document.querySelectorAll('.tab');
@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Funcionalidad para el menú de navegación
+/* // Funcionalidad para el menú de navegación
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
@@ -380,7 +380,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
+ */
 
 document.addEventListener('DOMContentLoaded', function() {
     // Crear efecto de red con puntos conectados en el fondo

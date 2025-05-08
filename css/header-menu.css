@@ -1,0 +1,132 @@
+/* header-menu.css - Estilos específicos para el menú del header */
+
+/* Estilos base para el menú de navegación */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    position: relative;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.logo {
+    z-index: 1001;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Estilos para el menú en pantallas grandes */
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.nav-menu ul li a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+    color: var(--primary);
+}
+
+/* Estilos del botón hamburguesa */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 992px) {
+    /* Mostrar botón hamburguesa */
+    .hamburger {
+        display: block;
+    }
+    
+    /* Transformar botón en X cuando está activo */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Estilo del menú móvil */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 270px;
+        height: 100vh;
+        background: white;
+        box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
+        padding-top: 80px;
+        transition: 0.3s ease-in-out;
+        z-index: 1000;
+    }
+    
+    /* Mostrar menú cuando está activo */
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+    }
+    
+    .nav-menu ul li {
+        margin: 1rem 0;
+    }
+    
+    /* Ajustar botones del header en móvil */
+    .header-buttons {
+        position: relative;
+        z-index: 1001;
+    }
+    
+    .header-buttons .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Asegurar que el header tenga un fondo cuando el menú está abierto */
+    .header.menu-open {
+        background-color: white;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+}
