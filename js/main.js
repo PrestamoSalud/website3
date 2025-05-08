@@ -30,20 +30,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (hamburger) {
         hamburger.addEventListener('click', function() {
+            console.log('Hamburger clicked');
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
-            // Animar hamburger
-            const bars = hamburger.querySelectorAll('.bar');
+            // Anima las barras del hamburger para formar una X
             if (hamburger.classList.contains('active')) {
-                bars[0].style.transform = 'translateY(8px) rotate(45deg)';
-                bars[1].style.opacity = '0';
-                bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+                console.log('Hamburger clicked1');
+                hamburger.children[0].style.transform = 'translateY(8px) rotate(45deg)';
+                hamburger.children[1].style.opacity = '0';
+                hamburger.children[2].style.transform = 'translateY(-8px) rotate(-45deg)';
             } else {
-                bars[0].style.transform = 'none';
-                bars[1].style.opacity = '1';
-                bars[2].style.transform = 'none';
+                console.log('Hamburger clicked2');
+                hamburger.children[0].style.transform = 'none';
+                hamburger.children[1].style.opacity = '1';
+                hamburger.children[2].style.transform = 'none';
             }
+            console.log('Hamburger clicked3');
         });
     }
     
@@ -207,10 +210,10 @@ document.addEventListener('DOMContentLoaded', function() {
             current += increment;
             
             if (current >= target) {
-                el.textContent = target + suffix;
+                el.textContent = formatearConComas(target) + suffix;
                 clearInterval(timer);
             } else {
-                el.textContent = Math.floor(current) + suffix;
+                el.textContent = formatearConComas(Math.floor(current)) + suffix;
             }
         }, interval);
     }
@@ -225,6 +228,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    function formatearConComas(numero) {
+        return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
     
     // Verificar contadores cuando se hace scroll
     window.addEventListener('scroll', checkCounters);

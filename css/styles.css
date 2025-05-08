@@ -1363,7 +1363,7 @@ p {
 
 .benefits-cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-lg);
     margin-bottom: var(--space-4xl);
 }
@@ -1581,7 +1581,7 @@ p {
 
 .clients-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-lg);
     margin-bottom: var(--space-3xl);
 }
@@ -2247,8 +2247,7 @@ p {
 }
 
 .footer-copyright a {
-    color: var(--light-gray);
-    text-decoration: underline;
+    
 }
 
 .footer-links-bottom a {
