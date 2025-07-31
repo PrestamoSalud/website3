@@ -1,1 +1,27 @@
-test
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirigiendo...</title>
+  <script>
+    // Espera a que se cargue todo el documento
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener parámetros de la URL
+      const params = new URLSearchParams(window.location.search);
+      const customer = params.get("customer");
+
+      if (customer) {
+        // Redirigir con el valor del parámetro
+        const redirectUrl = `https://app.quotanda.com/aspx/ApplicationPrestamoSalud?customer=${encodeURIComponent(customer)}`;
+        window.location.href = redirectUrl;
+      } else {
+        // Si no hay parámetro, mostrar un mensaje o quedarse en la página
+        document.body.innerHTML = "<h1>Parámetro 'customer' no especificado.</h1>";
+      }
+    });
+  </script>
+</head>
+<body>
+  <p>Redirigiendo, por favor espera...</p>
+</body>
+</html>
