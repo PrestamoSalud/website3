@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Página principal -->
+    <url>
+        <loc>https://prestamosalud.com/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://prestamosalud.com/images/hero-dashboard.png</image:loc>
+            <image:title>Dashboard Préstamo Salud - Plataforma de financiamiento médico</image:title>
+            <image:caption>Interfaz principal de la plataforma de financiamiento para hospitales y clínicas</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://prestamosalud.com/images/prestamosalud-logo.png</image:loc>
+            <image:title>Logo Préstamo Salud</image:title>
+            <image:caption>Logotipo oficial de Préstamo Salud - Financiamiento médico innovador</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Sección Nosotros -->
+    <url>
+        <loc>https://prestamosalud.com/#nosotros</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://prestamosalud.com/images/solutions/about-main.jpg</image:loc>
+            <image:title>Equipo de Préstamo Salud</image:title>
+            <image:caption>Profesionales expertos en financiamiento médico en LATAM</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Sección Soluciones -->
+    <url>
+        <loc>https://prestamosalud.com/#soluciones</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://prestamosalud.com/images/solutions/hospital-solution.jpg</image:loc>
+            <image:title>Soluciones para Hospitales</image:title>
+            <image:caption>Financiamiento especializado para hospitales y centros médicos</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://prestamosalud.com/images/solutions/financial-solution.jpg</image:loc>
+            <image:title>Soluciones para Instituciones Financieras</image:title>
+            <image:caption>Herramientas para bancos y entidades financieras</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Sección Beneficios -->
+    <url>
+        <loc>https://prestamosalud.com/#beneficios</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://prestamosalud.com/images/platform-showcase.jpg</image:loc>
+            <image:title>Tecnología Préstamo Salud</image:title>
+            <image:caption>Plataforma tecnológica avanzada para financiamiento médico</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Sección Para Quiénes -->
+    <url>
+        <loc>https://prestamosalud.com/#clientes</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://prestamosalud.com/images/icons/hospital-icon.svg</image:loc>
+            <image:title>Servicios para Hospitales</image:title>
+            <image:caption>Iconografía representativa de servicios hospitalarios</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://prestamosalud.com/images/icons/clinic-icon.svg</image:loc>
+            <image:title>Servicios para Clínicas</image:title>
+            <image:caption>Iconografía representativa de servicios para clínicas</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Sección Contacto/Demo -->
+    <url>
+        <loc>https://prestamosalud.com/#demo</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+</urlset>

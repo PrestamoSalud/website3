@@ -1,0 +1,56 @@
+# robots.txt para prestamosalud.com
+# Financiamiento médico innovador en LATAM
+
+User-agent: *
+Allow: /
+
+# Permitir acceso a recursos importantes
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /*.css
+Allow: /*.js
+
+# Bloquear archivos no necesarios para SEO
+Disallow: /TESTWEBTOLEAD.html
+Disallow: /*.psd$
+Disallow: /*copy.png$
+Disallow: /*copy*.png$
+
+# Archivos y directorios específicos permitidos para crawling
+Allow: /images/favicon/
+Allow: /images/icons/
+Allow: /images/solutions/
+Allow: /images/team/
+Allow: /images/process/
+
+# Sitemap location
+Sitemap: https://prestamosalud.com/sitemap.xml
+
+# Crawl-delay para ser amigables con los bots
+Crawl-delay: 1
+
+# User agents específicos
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Bloquear bots maliciosos comunes
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

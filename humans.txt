@@ -1,0 +1,26 @@
+# humanstxt.org/
+
+/* TEAM */
+
+CEO: Grant Taylor
+Location: LATAM
+
+COO: Lino Pujol-Soliano  
+Location: LATAM
+
+/* THANKS */
+
+Quotanda Team
+Banco Interamericano de Desarrollo
+Fondo Europeo de Inversiones
+
+/* SITE */
+
+Last update: 2025/01/15
+Language: Español / Spanish
+Standards: HTML5, CSS3, Schema.org
+Components: AOS, Font Awesome, Google Fonts
+Software: VS Code, Git
+
+Doctype: HTML5
+IDE: Visual Studio Code
