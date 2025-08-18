@@ -308,9 +308,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         formMessage.classList.add('fade-out');
                         setTimeout(function() {
                             formMessage.remove();
-                        }, 500);
-                    }, 3000);
-                }, 2000);
+                        }, 1000);
+                    }, 9000);
+                }, 6000);
             }
         });
     });
