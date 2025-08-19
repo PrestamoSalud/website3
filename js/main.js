@@ -309,8 +309,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         setTimeout(function() {
                             formMessage.remove();
                         }, 1000);
-                    }, 9000);
-                }, 6000);
+                    }, 6000);
+                }, 4000);
             }
         });
     });
